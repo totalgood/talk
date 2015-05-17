@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title></title>
+		<title>Neural Nets Demystified</title>
 
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 		<meta name="author" content="Hakim El Hattab">
@@ -12,21 +12,25 @@
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-		<link rel="stylesheet" href="/reveal.js/css/reveal.css">
-		<link rel="stylesheet" href="/css/theme/moon.css" id="theme">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
 
-		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="/reveal.js/lib/css/zenburn.css">
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<!-- Printing and PDF exports -->
 		<script>
-			document.write( '<link rel="stylesheet" href="/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
 
 		<!--[if lt IE 9]>
-		<script src="/reveal.js/lib/js/html5shiv.js"></script>
+		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
 	</head>
 
@@ -35,25 +39,25 @@
 		<div class="reveal">
 
             <div class="slides">
-
+<section>
                 <h2 id="neural-nets-demystified">Neural Nets Demystified</h2>
 
 <ol>
   <li>Demystify</li>
   <li>Dig Deeper</li>
 </ol>
-
-<p>Note:</p>
-
-<p>First I’ll suck you in with a simple example (predicting Portland Weather)
-Then I’ll show you how to play around at the frontier of the state of the art</p>
-
+<aside class="notes">
+<p>First I’ll show you a simple example (predicting Portland Weather).</p>
+<p>Then I’ll show you how to play around at the frontier of the state of the art</p>
 <ul>
   <li>Thoughts about the upcoming <a href="http://www.meetup.com/Portland-Data-Science-Group/events/222322211/">PDX Data Science Meetup</a></li>
   <li><a href="/Data-Science-Meetup--Neural-Nets-Demystified/">“Neural Nets Demystified.”</a></li>
 </ul>
 
-<hr />
+</aside>
+</section>
+<section>
+
 
 <h2 id="classification">Classification</h2>
 
@@ -63,7 +67,7 @@ Then I’ll show you how to play around at the frontier of the state of the art<
 
 <p>So lets predict “rain” (1) “no rain” (0) for PDX tomorrow</p>
 
-<hr />
+</section><section>
 
 <h2 id="supervised-learning">Supervised Learning</h2>
 
@@ -75,7 +79,7 @@ Then I’ll show you how to play around at the frontier of the state of the art<
 
 <p>Supervised classification (association)</p>
 
-<hr />
+</section><section>
 
 <h2 id="rain-shine-partly-cloudy-">Rain, Shine, Partly-Cloudy ?</h2>
 
@@ -87,7 +91,7 @@ Then I’ll show you how to play around at the frontier of the state of the art<
 
 <p>All classification problems can be reduced a binary classification</p>
 
-<hr />
+</section><section>
 
 <h2 id="perceptronhttpsenwikipediaorgwikiperceptron"><a href="https://en.wikipedia.org/wiki/Perceptron"><em>Perceptron</em></a></h2>
 
@@ -100,13 +104,13 @@ Then I’ll show you how to play around at the frontier of the state of the art<
 <span class="k">else</span><span class="p">:</span>
     <span class="n">output</span> <span class="o">=</span> <span class="mi">0</span></code></pre></div>
 
-<hr />
+</section><section>
 
 <h2 id="perceptron">Perceptron</h2>
 
 <p>(Diagram of a perceptron)</p>
 
-<hr />
+</section><section>
 
 <h2 id="need-something-a-little-better">Need something a little better</h2>
 
@@ -119,7 +123,7 @@ Then I’ll show you how to play around at the frontier of the state of the art<
   <li>doesn’t jump around: <em><a href="https://en.wikipedia.org/wiki/Smoothness">smooth</a></em></li>
 </ul>
 
-<hr />
+</section><section>
 
 <h2 id="sigmoidhttpsenwikipediaorgwikiperceptron"><a href="https://en.wikipedia.org/wiki/Perceptron"><em>Sigmoid</em></a></h2>
 
@@ -129,7 +133,7 @@ Then I’ll show you how to play around at the frontier of the state of the art<
 
 <p>Curved, smooth like the letter “C”</p>
 
-<hr />
+</section><section>
 
 <h2 id="what-greek-letter-do-you-think-of-when-i-say-sigma">What Greek letter do you think of when I say “Sigma”?</h2>
 
@@ -143,7 +147,7 @@ Then I’ll show you how to play around at the frontier of the state of the art<
   <li>“C”?</li>
 </ul>
 
-<hr />
+</section><section>
 
 <h2 id="sigmahttpsenwikipediaorgwikisigma"><a href="https://en.wikipedia.org/wiki/Sigma">Sigma</a></h2>
 
@@ -157,7 +161,7 @@ c (alternatively)</p>
 <p>Most English speakers think of an “S” when they hear “Sigma” you think of an S.
 So the meaning has evolved to mean S-shaped.</p>
 
-<hr />
+</section><section>
 
 <p>That’s what we want, something smooth, shaped like an “S”</p>
 
@@ -167,7 +171,7 @@ Wants to nudge the <code>output</code> closer to the <code>target</code></p>
 <p><code>target</code>: known classification for training examples
 <code>output</code>: predicted classification your network spits out</p>
 
-<hr />
+</section><section>
 
 <h2 id="but-just-a-nudge">But just a nudge.</h2>
 
@@ -178,7 +182,7 @@ And there may be nonlinear interactions between the weights (multiply layers)</p
 <p>So set the learning rate (\alpha) to somthething less than 1
 the portion of the predicted nudge you want to “dial back” to</p>
 
-<hr />
+</section><section>
 
 <h2 id="example-predict-rain-in-portland">Example: Predict Rain in Portland</h2>
 
@@ -187,7 +191,7 @@ the portion of the predicted nudge you want to “dial back” to</p>
   <li>pug-ann (helper functions TBD PyBrain2)</li>
 </ul>
 
-<hr />
+</section><section>
 
 <p>Get historical weather for Portland then …</p>
 
@@ -196,7 +200,7 @@ the portion of the predicted nudge you want to “dial back” to</p>
   <li>Activate: predict the weather for tomorrow!</li>
 </ol>
 
-<hr />
+</section><section>
 
 <p>NN Advantages</p>
 
@@ -220,7 +224,7 @@ the portion of the predicted nudge you want to “dial back” to</p>
   </li>
 </ul>
 
-<hr />
+</section><section>
 
 <p>Disadvantage #1: Slow training</p>
 
@@ -236,7 +240,7 @@ the portion of the predicted nudge you want to “dial back” to</p>
   </li>
 </ul>
 
-<hr />
+</section><section>
 
 <p>Disadvantage #2: They don’t scale (unparallelizable)</p>
 
@@ -249,7 +253,7 @@ the portion of the predicted nudge you want to “dial back” to</p>
   </li>
 </ul>
 
-<hr />
+</section><section>
 
 <p>Scaling Workaround</p>
 
@@ -261,7 +265,7 @@ the portion of the predicted nudge you want to “dial back” to</p>
   <li><a href="http://icl.cs.utk.edu/news_pub/submissions/plasma-scidac09.pdf">PLASMA</a> for BLAS</li>
 </ul>
 
-<hr />
+</section><section>
 
 <p>Scaling Workaround Limitations</p>
 
@@ -274,7 +278,7 @@ the portion of the predicted nudge you want to “dial back” to</p>
   <li><a href="http://icl.cs.utk.edu/news_pub/submissions/plasma-scidac09.pdf">Each GPU is equivalent to 16 core node</a></li>
 </ul>
 
-<hr />
+</section><section>
 
 <p>Disadvantage #3: They overfit</p>
 
@@ -282,7 +286,7 @@ the portion of the predicted nudge you want to “dial back” to</p>
   <li>Too manu nodes = overfitting</li>
 </ul>
 
-<hr />
+</section><section>
 
 <p>What is the big O?</p>
 
@@ -294,7 +298,7 @@ the portion of the predicted nudge you want to “dial back” to</p>
 
 <h2 id="on2">O(N^2)</h2>
 
-<hr />
+</section><section>
 
 <p>Not so fast, big O…</p>
 
@@ -303,7 +307,7 @@ the portion of the predicted nudge you want to “dial back” to</p>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span>
 <span class="mi">3600</span></code></pre></div>
 
-<hr />
+</section><section>
 
 <p>Rule of thumb </p>
 
@@ -314,14 +318,14 @@ the portion of the predicted nudge you want to “dial back” to</p>
 <p>N: number of nodes
 M: number of layers</p>
 
-<hr />
+</section><section>
 
 <p><code>assert(M * N**2 &lt; len(training_set) / 10.)</code></p>
 
 <p>I’m serious… put this into your code.
 I wasted a lot of time training models for Kaggle that overfitted.</p>
 
-<hr />
+</section><section>
 
 <p>You do need to know math!</p>
 
@@ -335,7 +339,7 @@ I wasted a lot of time training models for Kaggle that overfitted.</p>
   <li>Prune and evolve your NN</li>
 </ul>
 
-<hr />
+</section><section>
 
 <p>This is a virtuous cycle!</p>
 
@@ -353,7 +357,7 @@ I wasted a lot of time training models for Kaggle that overfitted.</p>
   </li>
 </ul>
 
-<hr />
+</section><section>
 
 <p>Structure you can play with (textbook)</p>
 
@@ -371,7 +375,7 @@ I wasted a lot of time training models for Kaggle that overfitted.</p>
 
 <p>All the rage: <em>convolutional networks</em></p>
 
-<hr />
+</section><section>
 
 <p>Unconventional structure to play with</p>
 
@@ -382,11 +386,11 @@ I wasted a lot of time training models for Kaggle that overfitted.</p>
   <li>weight “snap to grid” (snap learning)</li>
 </ul>
 
-<hr />
+</section><section>
 
 <p>Joke: “What’s the difference between a scientist and a crackpot?”</p>
 
-<hr />
+</section><section>
 
 <p>Ans: “P-value”</p>
 
@@ -399,7 +403,7 @@ I wasted a lot of time training models for Kaggle that overfitted.</p>
 
 <p>I’m a crackpot!</p>
 
-<hr />
+</section><section>
 
 <p>Resources</p>
 
@@ -410,7 +414,7 @@ I wasted a lot of time training models for Kaggle that overfitted.</p>
   <li><a href="https://github.com/pybrain2/pybrain2">PyBrain2</a>: We’re working on it</li>
 </ul>
 
-<hr />
+</section><section>
 
 <p>Code highlighting test</p>
 
@@ -429,12 +433,12 @@ I wasted a lot of time training models for Kaggle that overfitted.</p>
   <span class="p">}</span>
 <span class="p">}</span></code></pre></div>
 
+</section>
 
 
-            </div>
+            </div class="slides">
 
-		</div>
-
+		</div class="reveal">
 		<script src="/reveal.js/lib/js/head.min.js"></script>
 		<script src="/reveal.js/js/reveal.js"></script>
 
