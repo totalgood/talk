@@ -1,54 +1,45 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <meta name="author" content="Hobson Lane" />
+    <meta name="dcterms.date" content="2015-05-19" />
+    <title>Neural Nets Demystified</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
-	<head>
-		<meta charset="utf-8">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
 
-		<title>Neural Nets Demystified</title>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
-
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css" id="theme">
-
-		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
-
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
-
-	<body>
-
-		<div class="reveal">
-
-            <div class="slides">
-<section>
-                <h2 id="neural-nets-demystified">Neural Nets Demystified</h2>
-
-<ol>
-  <li>Demystify</li>
-  <li>Dig Deeper</li>
-</ol>
-<aside class="notes">
-<p>First I’ll show you a simple example (predicting Portland Weather).</p>
-<p>Then I’ll show you how to play around at the frontier of the state of the art</p>
+  <body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+      <h2 id="neural-nets-demystified">Neural Nets Demystified</h2>
+      <ol>
+        <li>Demystify</li>
+        <li>Dig Deeper</li>
+      </ol>
+      <aside class="notes">
+      <p>First I’ll show you a simple example (predicting Portland Weather).</p>
+      <p>Then I’ll show you how to play around at the frontier of the state of the art</p>
 <ul>
   <li>Thoughts about the upcoming <a href="http://www.meetup.com/Portland-Data-Science-Group/events/222322211/">PDX Data Science Meetup</a></li>
   <li><a href="/Data-Science-Meetup--Neural-Nets-Demystified/">“Neural Nets Demystified.”</a></li>
@@ -98,6 +89,13 @@
 <p>Sounds mysterious, like a “flux capacitor” or something…</p>
 
 <p>It’s just a multiply and threshold check:</p>
+
+<div class="highlight"><code class="language-python" data-lang="python">
+if (weights * inputs) > 0:
+    output = 1
+else:
+    output = 0
+</code></div>
 
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">if</span> <span class="p">(</span><span class="n">weights</span> <span class="o">*</span> <span class="n">inputs</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
     <span class="n">output</span> <span class="o">=</span> <span class="mi">1</span>
@@ -438,40 +436,40 @@ I wasted a lot of time training models for Kaggle that overfitted.</p>
 
             </div class="slides">
 
-		</div class="reveal">
-		<script src="/reveal.js/lib/js/head.min.js"></script>
-		<script src="/reveal.js/js/reveal.js"></script>
+    </div class="reveal">
+    <script src="/reveal.js/lib/js/head.min.js"></script>
+    <script src="/reveal.js/js/reveal.js"></script>
 
-		<script>
+    <script>
 
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
 
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
 
                 
 
-				// Optional libraries used to extend on reveal.js
-				dependencies: [
-					{ src: '/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: '/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: '/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: '/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: '/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: '/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
                     
-					{ src: '/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+          { src: '/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
                     
                     
-				]
-			});
+        ]
+      });
 
-		</script>
+    </script>
 
-	</body>
+  </body>
 </html>
